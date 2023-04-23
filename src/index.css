@@ -31,21 +31,15 @@ body {
 
 .item {
   background: #186ea8;
-  font-size: 10px;
   cursor: pointer;
   outline: none;
   font-size: 40px;
   border: 1px solid black;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
 }
 
 .item:hover {
-  opacity: 0.8;
-}
-
-.x {
-  font-size: 20px;
-  color: green;
+  opacity: .8;
 }
 
 .reset-button {
@@ -61,11 +55,11 @@ body {
   border-radius: 7px;
   cursor: pointer;
   font-weight: 700;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
 }
 
 .reset-button:hover {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 .status {
