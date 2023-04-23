@@ -3,7 +3,7 @@ import { useState } from "react";
 const App = () => {
   const emptyBoard = Array(9).fill(null);
   const [board, setBoard] = useState(emptyBoard);
-  const [xIsNext, setxIsNext] = useState(true);
+  const [nextXO, setNextXO] = useState(true);
 
   const calculateWinner = (board) => {
     const lines = [
@@ -33,23 +33,19 @@ const App = () => {
 
     // выбор квадрата
     const boardCopy = [...board];
-    boardCopy[index] = xIsNext ? "X" : "O";
+    boardCopy[index] = nextXO ? "X" : "O";
     setBoard(boardCopy);
-    setxIsNext(!xIsNext);
+    setNextXO(!nextXO);
   };
 
   const renderStatus = () => {
     if (winner) {
       return `Winner: ${winner}`;
-    } else if (board.every((item) => item !== null)) {
+    } else if (board.every(item => item !== null)) {
       return "Draw!";
     } else {
-      return `Next player: ${xIsNext ? "X" : "O"}`;
+      return `Next player: ${nextXO ? "X" : "O"}`;
     }
-  };
-
-  const resetGame = () => {
-    setBoard(emptyBoard);
   };
 
   return (
@@ -67,7 +63,7 @@ const App = () => {
         ))}
       </div>
       <div className="status">{renderStatus()}</div>
-      <button className="reset-button" onClick={resetGame}>
+      <button className="reset-button" onClick={() => setBoard(emptyBoard)}>
         Restart Game
       </button>
     </>
